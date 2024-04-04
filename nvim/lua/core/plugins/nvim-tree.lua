@@ -13,7 +13,7 @@ return {
 			group_empty = true,
 			indent_width = 1,
 			highlight_git = "none",
-			highlight_opened_files = "all",
+			highlight_opened_files = "name",
 			highlight_modified = "all",
 			highlight_diagnostics = "none",
 
@@ -30,6 +30,7 @@ return {
 	},
 	config = function(_, opts)
 		require("nvim-tree").setup(opts)
-		vim.cmd.hi("NvimTreeOpenedHL guifg=#FFFFFF gui=bold")
+		-- vim.cmd.hi("NvimTreeOpenedHL guifg=#FFFFFF gui=bold")
+		vim.cmd.hi("NvimTreeOpenedHL gui=italic,bold")
 	end,
 }
