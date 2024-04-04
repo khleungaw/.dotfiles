@@ -30,7 +30,6 @@ return {
 	},
 	config = function(_, opts)
 		require("nvim-tree").setup(opts)
-		-- vim.cmd.hi("NvimTreeOpenedHL guifg=#FFFFFF gui=bold")
 		vim.cmd.hi("NvimTreeOpenedHL gui=italic,bold")
 	end,
 }
