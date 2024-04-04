@@ -6,8 +6,8 @@ vim.keymap.set("n", "<C-z>", vim.cmd.u, { desc = "Undo" })
 
 vim.keymap.set("n", "<C-s>", vim.cmd.w, { desc = "Save" })
 vim.keymap.set("i", "<C-s>", "<Esc>:w<CR>", { desc = "Save", silent = true })
-vim.keymap.set("n", "<leader>qq", vim.cmd.q, { desc = "[Q]uit" })
-vim.keymap.set("n", "<leader>qa", vim.cmd.qa, { desc = "[Q]uit All" })
+vim.keymap.set("n", "<leader>q", vim.cmd.q, { desc = "[q]uit" })
+vim.keymap.set("n", "<leader>Q", vim.cmd.qa, { desc = "[Q]uit Neovim" })
 
 vim.keymap.set("v", "<C-c>", '"+y', { desc = "Copy" })
 
