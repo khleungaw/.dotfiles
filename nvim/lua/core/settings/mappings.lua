@@ -1,4 +1,8 @@
 -- [[ Basic Keymaps ]]
+vim.api.nvim_set_keymap("n", "<C-z>", "<nop>", { noremap = true, silent = true })
+vim.api.nvim_set_keymap("i", "<C-z>", "<nop>", { noremap = true, silent = true })
+vim.api.nvim_set_keymap("v", "<C-z>", "<nop>", { noremap = true, silent = true })
+
 vim.keymap.set("i", "<C-y>", vim.cmd.red, { desc = "Redo" })
 vim.keymap.set("n", "<C-y>", vim.cmd.red, { desc = "Redo" })
 vim.keymap.set("i", "<C-z>", vim.cmd.u, { desc = "Undo" })
@@ -13,8 +17,10 @@ vim.keymap.set("v", "<C-c>", '"+y', { desc = "Copy" })
 
 vim.keymap.set("n", "<Tab>", ">>_", { desc = "Incrase indent" })
 vim.keymap.set("v", "<Tab>", ">gv", { desc = "Incrase indent" })
+vim.keymap.set("i", "<Tab>", "<C-t>", { desc = "Increase indent" })
 vim.keymap.set("n", "<S-Tab>", "<<_", { desc = "Decrease indent" })
 vim.keymap.set("v", "<S-Tab>", "<gv", { desc = "Decrease indent" })
+vim.keymap.set("i", "<S-Tab>", "<C-d>", { desc = "Decrease indent" })
 
 vim.keymap.set("n", "<S-Left>", "b", { desc = "Previous word" })
 vim.keymap.set("n", "<S-Right>", "w", { desc = "Next word" })
