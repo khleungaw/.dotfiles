@@ -2,9 +2,9 @@ return {
 	"neovim/nvim-lspconfig",
 	dependencies = {
 		-- Automatically install LSPs and related tools to stdpath for Neovim
-		"williamboman/mason.nvim",
-		"williamboman/mason-lspconfig.nvim",
-		"WhoIsSethDaniel/mason-tool-installer.nvim",
+		{ "williamboman/mason.nvim" },
+		{ "williamboman/mason-lspconfig.nvim" },
+		{ "WhoIsSethDaniel/mason-tool-installer.nvim" },
 
 		-- Useful status updates for LSP.
 		{ "j-hui/fidget.nvim", opts = {} },
@@ -14,6 +14,8 @@ return {
 		{ "folke/neodev.nvim", opts = {} },
 	},
 	config = function()
+		require("java").setup()
+
 		vim.api.nvim_create_autocmd("LspAttach", {
 			group = vim.api.nvim_create_augroup("kickstart-lsp-attach", { clear = true }),
 			callback = function(event)
@@ -115,7 +117,8 @@ return {
 			--
 			-- But for many setups, the LSP (`tsserver`) will work just fine
 			-- tsserver = {},
-			--
+
+			jdtls = {},
 
 			lua_ls = {
 				-- cmd = {...},
