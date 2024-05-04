@@ -118,7 +118,16 @@ return {
 			-- But for many setups, the LSP (`tsserver`) will work just fine
 			-- tsserver = {},
 
-			jdtls = {},
+			jdtls = {
+				handlers = {
+					["language/status"] = function(_, _)
+						vim.print("***")
+					end,
+					["$/progress"] = function(_, _, _)
+						vim.print("---")
+					end,
+				},
+			},
 
 			lua_ls = {
 				-- cmd = {...},
