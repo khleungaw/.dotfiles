@@ -26,7 +26,10 @@ return {
 
 		modified = { enable = true },
 		diagnostics = { enable = true },
-		filters = { custom = { "^.git$" } },
+		filters = {
+			git_ignored = false,
+			custom = { "^\\.git$" },
+		},
 	},
 	config = function(_, opts)
 		require("nvim-tree").setup(opts)
