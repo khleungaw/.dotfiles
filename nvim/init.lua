@@ -2,6 +2,7 @@
 require("core.settings.options")
 require("core.settings.mappings")
 require("core.settings.autocmds")
+require("core.settings.lsp_autocmds")
 
 -- [[ Install `lazy.nvim` plugin manager ]]
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
