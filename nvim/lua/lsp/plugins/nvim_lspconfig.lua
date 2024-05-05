@@ -62,5 +62,11 @@ return {
 				end,
 			},
 		})
+
+		require("lspconfig")["tsserver"].setup({
+			capabilities = vim.tbl_deep_extend("force", {}, capabilities, {}),
+			cmd = { "bunx", "typescript-language-server", "--stdio" },
+			single_file_supprot = true,
+		})
 	end,
 }
