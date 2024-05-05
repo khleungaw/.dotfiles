@@ -2,7 +2,7 @@
 require("core.settings.options")
 require("core.settings.mappings")
 require("core.settings.autocmds")
-require("core.settings.lsp_autocmds")
+require("lsp.settings.autocmds")
 
 -- [[ Install `lazy.nvim` plugin manager ]]
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
@@ -16,6 +16,7 @@ vim.opt.rtp:prepend(lazypath)
 require("lazy").setup({
 	spec = {
 		{ import = "core.plugins" },
+		{ import = "lsp.plugins" },
 	},
 	ui = {
 		icons = vim.g.have_nerd_font and {} or {

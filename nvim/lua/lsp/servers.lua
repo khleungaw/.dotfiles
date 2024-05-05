@@ -1,13 +1,13 @@
-local path = "./servers"
+local path = "~/.config/nvim/lua/lsp/servers"
 local servers = {}
 
-local command = "\\ls " .. path
-local fileList = io.popen(command):read("*all")
+local fileList = vim.fn.glob(path .. "/*.lua", false, true)
 
-for file in string.gmatch(fileList, "%S+") do
-	local module = require(path .. "." .. file:gsub("%.lua$", ""))
+for _, file in ipairs(fileList) do
+	local moduleName = string.match(file, "([^/]+)%.lua$")
+	local module = require("lsp.servers." .. moduleName)
 	for key, value in pairs(module) do
-			servers[key] = value
+		servers[key] = value
 	end
 end
 
