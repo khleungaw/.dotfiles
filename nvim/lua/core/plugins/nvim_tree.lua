@@ -28,7 +28,14 @@ return {
 		diagnostics = { enable = true },
 		filters = {
 			git_ignored = false,
-			custom = { "^\\.git$" },
+			custom = {
+				"^\\.git$",
+				"^CMakeFiles$",
+				"^CMakeCache.txt$",
+				"^cmake_install.cmake$",
+				"^Makefile$",
+				"^\\.cache$",
+			},
 		},
 	},
 	config = function(_, opts)
