@@ -6,7 +6,7 @@ return {
     "nvim-telescope/telescope.nvim", -- optional
     "ibhagwan/fzf-lua",              -- optional
   },
-  opts = {  },
+  opts = {},
   keys = {
     { "<leader>g", function() require("neogit").open({kind="split"}) end, desc = "[G]it" }
   }
