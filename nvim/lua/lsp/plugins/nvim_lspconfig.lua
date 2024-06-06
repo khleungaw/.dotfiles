@@ -5,6 +5,7 @@ return {
 		{ "williamboman/mason.nvim" },
 		{ "williamboman/mason-lspconfig.nvim" },
 		{ "WhoIsSethDaniel/mason-tool-installer.nvim" },
+		{ "nvim-java/nvim-java" },
 
 		-- Useful status updates for LSP.
 		{ "j-hui/fidget.nvim", opts = {} },
@@ -14,7 +15,9 @@ return {
 		{ "folke/neodev.nvim", opts = {} },
 	},
 	config = function()
-		require("java").setup() -- Required by nvim-java
+		require("java").setup({
+			jdk = { auto_install = false },
+		}) -- Required by nvim-java
 
 		-- LSP servers and clients are able to communicate to each other what features they support.
 		--  By default, Neovim doesn't support everything that is in the LSP specification.
@@ -40,7 +43,7 @@ return {
 		--    :Mason
 		--
 		--  You can press `g?` for help in this menu.
-		require("mason").setup()
+		-- require("mason").setup()
 
 		-- You can add other tools here that you want Mason to install
 		-- for you, so that they are available from within Neovim.
