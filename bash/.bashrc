@@ -28,3 +28,6 @@ export PS1='\[\033[01;32m\][\u@\h]\[\033[00m\] \[\033[01;34m\]\w\[\033[00m\]\[\0
 # Bun
 export BUN_INSTALL="$HOME/.bun"
 export PATH=$BUN_INSTALL/bin:$PATH
+
+# Java
+export JAVA_HOME=/usr/lib/jvm/java-22-openjdk
