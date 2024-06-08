@@ -30,7 +30,7 @@ echo -e "\e[38;5;214m$(( ( $(date -d '2025-04-25' +%s) - $(date +%s) ) / 86400 )
 
 # Prompt
 parse_git_branch() {
-		git branch 1> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ (\1)/'
+		git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ (\1)/'
 }
 
 export PS1='\[\033[01;32m\][\u@\h]\[\033[00m\] \[\033[01;34m\]\w\[\033[00m\]\[\033[01;31m\]$(parse_git_branch)\[\033[00m\] $ '
