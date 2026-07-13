@@ -29,44 +29,44 @@ local function buffer_delete_picker()
 	opts.bufnr_width = #tostring(max_bufnr)
 
 	pickers
-		.new(opts, {
-			prompt_title = "Delete Buffers",
-			finder = finders.new_table({
-				results = buffers,
-				entry_maker = make_entry.gen_from_buffer(opts),
-			}),
-			previewer = conf.grep_previewer(opts),
-			sorter = conf.generic_sorter(opts),
-			attach_mappings = function(_, map)
-				actions.select_default:replace(function(prompt_bufnr)
-					actions.delete_buffer(prompt_bufnr)
+			.new(opts, {
+				prompt_title = "Delete Buffers",
+				finder = finders.new_table({
+					results = buffers,
+					entry_maker = make_entry.gen_from_buffer(opts),
+				}),
+				previewer = conf.grep_previewer(opts),
+				sorter = conf.generic_sorter(opts),
+				attach_mappings = function(_, map)
+					actions.select_default:replace(function(prompt_bufnr)
+						actions.delete_buffer(prompt_bufnr)
 
-					local current_picker = action_state.get_current_picker(prompt_bufnr)
-					local results = current_picker:get_multi_selection()
-					if not next(results) then
+						local current_picker = action_state.get_current_picker(prompt_bufnr)
+						local results = current_picker:get_multi_selection()
+						if not next(results) then
+							actions.close(prompt_bufnr)
+						else
+							actions.refresh(prompt_bufnr)
+						end
+					end)
+
+					map("n", "<C-a>", function(prompt_bufnr)
+						actions.select_all(prompt_bufnr)
+						actions.delete_buffer(prompt_bufnr)
 						actions.close(prompt_bufnr)
-					else
-						actions.refresh(prompt_bufnr)
-					end
-				end)
+					end)
 
-				map("n", "<C-a>", function(prompt_bufnr)
-					actions.select_all(prompt_bufnr)
-					actions.delete_buffer(prompt_bufnr)
-					actions.close(prompt_bufnr)
-				end)
+					map("i", "<C-a>", function(prompt_bufnr)
+						actions.select_all(prompt_bufnr)
+						actions.delete_buffer(prompt_bufnr)
+						actions.close(prompt_bufnr)
+					end)
 
-				map("i", "<C-a>", function(prompt_bufnr)
-					actions.select_all(prompt_bufnr)
-					actions.delete_buffer(prompt_bufnr)
-					actions.close(prompt_bufnr)
-				end)
-
-				return true
-			end,
-			multi_selection = true,
-		})
-		:find()
+					return true
+				end,
+				multi_selection = true,
+			})
+			:find()
 end
 
 return buffer_delete_picker

@@ -8,6 +8,6 @@ return {
   },
   opts = {},
   keys = {
-    { "<leader>g", function() require("neogit").open({kind="split"}) end, desc = "[G]it" }
+    { "<leader>g", function() require("neogit").open({ kind = "split" }) end, desc = "[G]it" }
   }
 }
