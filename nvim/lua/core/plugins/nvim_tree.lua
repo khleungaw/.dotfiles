@@ -3,6 +3,7 @@ return {
 	keys = {
 		{ "<leader>t", ":NvimTreeToggle<CR>", desc = "[T]oggle tree", silent = true },
 	},
+	lazy = false,
 	opts = {
 		select_prompts = true,
 		hijack_cursor = true,
