@@ -36,3 +36,6 @@ require("lazy").setup({
 	},
 	change_detection = { notify = false },
 })
+
+-- [[ LSP ]]
+vim.lsp.enable('lua_ls')
