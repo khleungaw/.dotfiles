@@ -26,7 +26,6 @@ export JAVA_HOME=/usr/lib/jvm/java-22-openjdk
 
 # Login Banner
 clear
-echo -e "\e[38;5;214m$(( ( $(date -d '2025-04-25' +%s) - $(date +%s) ) / 86400 )) days till 2025-04-25\e[0m"
 
 # Prompt
 parse_git_branch() {
