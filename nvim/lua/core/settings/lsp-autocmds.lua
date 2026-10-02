@@ -1,3 +1,8 @@
+local function toggle_inlay_hint()
+	vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled())
+end
+
+
 vim.api.nvim_create_autocmd("LspAttach", {
 	group = vim.api.nvim_create_augroup("kickstart-lsp-attach", { clear = true }),
 	callback = function(event)
@@ -46,6 +51,10 @@ vim.api.nvim_create_autocmd("LspAttach", {
 		-- WARN: This is not Goto Definition, this is Goto Declaration.
 		--  For example, in C this would take you to the header.
 		map("gD", vim.lsp.buf.declaration, "[G]oto [D]eclaration")
+
+		-- Inlay Hint
+		map("<leader>ch", toggle_inlay_hint, "Inlay [H]int")
+		map("<leader>cd", vim.lsp.buf.hover, "[D]ocumentation")
 
 		-- The following two autocommands are used to highlight references of the
 		-- word under your cursor when your cursor rests there for a little while.
