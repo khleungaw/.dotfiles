@@ -55,8 +55,8 @@ local function default_sysroot_src()
   local sysroot = vim.tbl_get(vim.lsp.config['rust_analyzer'], 'settings', 'rust-analyzer', 'cargo', 'sysroot')
   if not sysroot then
     local result = vim
-      .system({ 'cargo', '-Z', 'unstable-options', 'rustc', '--print', 'sysroot' }, { text = true })
-      :wait()
+        .system({ 'cargo', '-Z', 'unstable-options', 'rustc', '--print', 'sysroot' }, { text = true })
+        :wait()
 
     if result.code == 0 and result.stdout then
       sysroot = vim.trim(result.stdout)
@@ -107,7 +107,7 @@ return {
     if cargo_crate_dir == nil then
       on_dir(
         vim.fs.root(fname, { 'rust-project.json' })
-          or vim.fs.dirname(vim.fs.find('.git', { path = fname, upward = true })[1])
+        or vim.fs.dirname(vim.fs.find('.git', { path = fname, upward = true })[1])
       )
       return
     end
