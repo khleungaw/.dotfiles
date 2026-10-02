@@ -21,11 +21,11 @@ return {
 		{ "<leader>sf",       require("telescope.builtin").find_files,  desc = "[S]earch [F]iles" },
 		{ "<leader>ss",       require("telescope.builtin").builtin,     desc = "[S]earch [S]elect Telescope" },
 		{ "<leader>sw",       require("telescope.builtin").grep_string, desc = "[S]earch current [W]ord" },
-		{ "<leader>sg",       require("telescope.builtin").live_grep,   desc = "[S]earch by [G]rep" },
+		{ "<leader><leader>", require("telescope.builtin").live_grep,   desc = "[S]earch by [G]rep" },
 		{ "<leader>sd",       require("telescope.builtin").diagnostics, desc = "[S]earch [D]iagnostics" },
-		{ "<leader>sr",       require("telescope.builtin").resume,      desc = "[S]earch [R]esume" },
-		{ "<leader>s.",       require("telescope.builtin").oldfiles,    desc = '[S]earch Recent Files ("." for repeat)' },
-		{ "<leader><leader>", require("telescope.builtin").buffers,     desc = "[ ] Find existing buffers" },
+		-- { "<leader>sr",       require("telescope.builtin").resume,      desc = "[S]earch [R]esume" },
+		-- { "<leader>s.",       require("telescope.builtin").oldfiles,    desc = '[S]earch Recent Files ("." for repeat)' },
+		-- { "<leader><leader>", require("telescope.builtin").buffers,     desc = "[ ] Find existing buffers" },
 
 		{
 			"<leader>/",
@@ -49,24 +49,24 @@ return {
 			desc = "[S]earch [/] in Open Files",
 		},
 
-		{
-			"<leader>s/",
-			function()
-				require("telescope.builtin").live_grep({
-					grep_open_files = true,
-					prompt_title = "Live Grep in Open Files",
-				})
-			end,
-			desc = "[S]earch [/] in Open Files",
-		},
+		-- {
+		-- 	"<leader>s/",
+		-- 	function()
+		-- 		require("telescope.builtin").live_grep({
+		-- 			grep_open_files = true,
+		-- 			prompt_title = "Live Grep in Open Files",
+		-- 		})
+		-- 	end,
+		-- 	desc = "[S]earch [/] in Open Files",
+		-- },
 
-		{
-			"<leader>sn",
-			function()
-				require("telescope.builtin").find_files({ cwd = vim.fn.stdpath("config") })
-			end,
-			desc = "[S]earch [N]eovim files",
-		},
+		-- {
+		-- 	"<leader>sn",
+		-- 	function()
+		-- 		require("telescope.builtin").find_files({ cwd = vim.fn.stdpath("config") })
+		-- 	end,
+		-- 	desc = "[S]earch [N]eovim files",
+		-- },
 
 		{
 			"<leader>bd",
