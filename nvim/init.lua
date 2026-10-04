@@ -1,16 +1,6 @@
-local function load_dir(mod)
-  local path = vim.fn.stdpath("config") .. "/lua/" .. mod:gsub("%.", "/")
-  for _, file in ipairs(vim.fn.glob(path .. "/*.lua", false, true)) do
-    local name = vim.fn.fnamemodify(file, ":t:r")
-    if name ~= "init" then
-      require(mod .. "." .. name)
-    end
-  end
-end
-
--- [[ Settings ]]
-load_dir("core.settings")
-load_dir("core.autocmds")
+-- [[ Modules ]]
+require("core.settings")
+require("core.autocmds")
 
 -- [[ Install `lazy.nvim` plugin manager ]]
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
