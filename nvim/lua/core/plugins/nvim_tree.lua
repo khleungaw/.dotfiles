@@ -1,7 +1,7 @@
 return {
 	"nvim-tree/nvim-tree.lua",
 	keys = {
-		{ "<leader>t", ":NvimTreeToggle<CR>", desc = "[T]oggle tree", silent = true },
+		{ "<leader>t", ":NvimTreeToggle<CR>", desc = "[T]oggle nvim-tree", silent = true },
 	},
 	lazy = false,
 	opts = {
@@ -42,7 +42,6 @@ return {
 	config = function(_, opts)
 		require("nvim-tree").setup(opts)
 		vim.cmd.hi("NvimTreeOpenedHL gui=italic,bold")
-
 
 		local api = require("nvim-tree.api")
 		local skip = { node_modules = true, build = true, target = true, [".venv"] = true }

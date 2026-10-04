@@ -35,7 +35,7 @@ vim.keymap.set({ "n", "x", "v", "i" }, "<C-f>", "<Esc>/")
 vim.keymap.set({ "n", "x", "v", "i" }, "<C-h>", "<Esc>:%s/")
 
 -- Leader Keys
-vim.keymap.set("n", "<leader>R", ":restart<CR>", { desc = "[R]estart Neovim" })
+vim.keymap.set("n", "<leader>L", ":Lazy<CR>", { desc = "[L]azy" })
 
 -- Set highlight on search, but clear on pressing <Esc> in normal mode
 vim.opt.hlsearch = true
