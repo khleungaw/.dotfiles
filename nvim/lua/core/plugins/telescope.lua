@@ -23,9 +23,6 @@ return {
 		{ "<leader>sw",       require("telescope.builtin").grep_string, desc = "[S]earch current [W]ord" },
 		{ "<leader><leader>", require("telescope.builtin").live_grep,   desc = "[S]earch by [G]rep" },
 		{ "<leader>sd",       require("telescope.builtin").diagnostics, desc = "[S]earch [D]iagnostics" },
-		-- { "<leader>sr",       require("telescope.builtin").resume,      desc = "[S]earch [R]esume" },
-		-- { "<leader>s.",       require("telescope.builtin").oldfiles,    desc = '[S]earch Recent Files ("." for repeat)' },
-		-- { "<leader><leader>", require("telescope.builtin").buffers,     desc = "[ ] Find existing buffers" },
 
 		{
 			"<leader>/",
@@ -39,20 +36,20 @@ return {
 		},
 
 		{
-			"<leader>s/",
-			function()
-				require("telescope.builtin").live_grep({
-					grep_open_files = true,
-					prompt_title = "Live Grep in Open Files",
-				})
-			end,
-			desc = "[S]earch [/] in Open Files",
+			"<leader>Tbd",
+			require("telescope.custom.buffer_delete_picker"),
+			desc = "[T]elescope [B]uffer [D]elete",
 		},
 
 		{
-			"<leader>bd",
-			require("telescope.custom.buffer_delete_picker"),
-			desc = "[B]uffer [D]elete",
+			"<leader>Tsc",
+			function()
+				require("telescope.builtin").colorscheme({
+					enable_preview = true,
+					ignore_builtins = true, -- set true to hide vim's default themes
+				})
+			end,
+			desc = "[T]elescope [S]elect [C]olorscheme",
 		},
 	},
 	opts = {
