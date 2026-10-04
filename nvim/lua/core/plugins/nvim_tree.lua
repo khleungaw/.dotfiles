@@ -42,5 +42,22 @@ return {
 	config = function(_, opts)
 		require("nvim-tree").setup(opts)
 		vim.cmd.hi("NvimTreeOpenedHL gui=italic,bold")
+
+
+		local api = require("nvim-tree.api")
+		local skip = { node_modules = true, build = true, target = true, [".venv"] = true }
+		local expanded = false
+
+		api.events.subscribe(api.events.Event.TreeOpen, function()
+			if expanded then
+				return
+			end
+			expanded = true
+			api.tree.expand_all(nil, {
+				expand_until = function(count, node)
+					return count < 200 and not skip[node.name]
+				end,
+			})
+		end)
 	end,
 }
