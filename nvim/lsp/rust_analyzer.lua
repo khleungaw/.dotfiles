@@ -52,6 +52,7 @@ local function user_sysroot_src()
 end
 
 local function default_sysroot_src()
+  ---@type lspconfig.settings.rust_analyzer
   local sysroot = vim.tbl_get(vim.lsp.config['rust_analyzer'], 'settings', 'rust-analyzer', 'cargo', 'sysroot')
   if not sysroot then
     local result = vim
@@ -151,7 +152,6 @@ return {
       },
     },
   },
-  ---@type lspconfig.settings.rust_analyzer
   settings = {
     ['rust-analyzer'] = {
       lens = {
@@ -167,6 +167,7 @@ return {
         run = { enable = true },
         updateTest = { enable = true },
       },
+      check = { command = "clippy" }
     },
   },
   before_init = function(init_params, config)

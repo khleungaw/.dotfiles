@@ -14,6 +14,13 @@ return { -- Autoformat
 		notify_on_error = false,
 		formatters_by_ft = {
 			lua = { "stylua" },
+			rust = { "rustfmt" }
 		},
+		formatters = {
+			rustfmt = {
+				command = "rustfmt",
+				args = { "+nightly", "--edition", "2021", "--emit", "stdout" },
+			},
+		}
 	},
 }
