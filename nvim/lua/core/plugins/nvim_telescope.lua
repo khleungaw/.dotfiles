@@ -49,25 +49,6 @@ return {
 			desc = "[S]earch [/] in Open Files",
 		},
 
-		-- {
-		-- 	"<leader>s/",
-		-- 	function()
-		-- 		require("telescope.builtin").live_grep({
-		-- 			grep_open_files = true,
-		-- 			prompt_title = "Live Grep in Open Files",
-		-- 		})
-		-- 	end,
-		-- 	desc = "[S]earch [/] in Open Files",
-		-- },
-
-		-- {
-		-- 	"<leader>sn",
-		-- 	function()
-		-- 		require("telescope.builtin").find_files({ cwd = vim.fn.stdpath("config") })
-		-- 	end,
-		-- 	desc = "[S]earch [N]eovim files",
-		-- },
-
 		{
 			"<leader>bd",
 			require("telescope.custom.buffer_delete_picker"),
