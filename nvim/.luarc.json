@@ -1,0 +1,13 @@
+{
+	"format.enable": true,
+	"format.defaultConfig": {
+		"end_of_line": "lf",
+		"indent_style": "tab",
+		"indent_size": "4",
+		"tab_width": "4",
+		"max_line_length": "160",
+		"quote_style": "double",
+		"call_arg_parentheses": "keep",
+		"trailing_table_separator": "smart"
+	}
+}
