@@ -13,14 +13,20 @@ return { -- Autoformat
 	opts = {
 		notify_on_error = false,
 		formatters_by_ft = {
-			lua = { "stylua" },
-			rust = { "rustfmt" }
+			lua = {},
+			rust = { "rustfmt" },
+			typescript = { "prettier" },
+			typescriptreact = { "prettier" },
 		},
 		formatters = {
 			rustfmt = {
 				command = "rustfmt",
 				args = { "+nightly", "--edition", "2021", "--emit", "stdout" },
 			},
-		}
+			prettier = {
+				command = "bun",
+				args = { "x", "prettier", "--stdin-filepath", "$FILENAME" },
+			},
+		},
 	},
 }
