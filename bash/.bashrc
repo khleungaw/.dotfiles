@@ -19,8 +19,9 @@ export EDITOR=nano
 export BUN_INSTALL="$HOME/.bun"
 export PATH=$BUN_INSTALL/bin:$PATH
 
-# Java
-export JAVA_HOME=/usr/lib/jvm/java-22-openjdk
+# Claude Code
+export CLAUDE_PATH="$HOME/.local/bin"
+export PATH="$CLAUDE_PATH:$PATH"
 
 ## Customization
 
